@@ -1,4 +1,8 @@
-import articleManage from "./articleManage.js";
+import articleManage from "./articleManage.js"
+import adminManage from "./adminManage"
+import orderManage from "./orderManage"
+import productManage from "./productManage"
+import userManage from "./userManage"
 
 /**
  * 首页
@@ -9,10 +13,14 @@ let home = {
   path: "/",
   permissionsKey: "",
   icon: "fa fa-tachometer"
-};
+}
 
 export default {
   home,
+  adminManage,
+  userManage,
+  productManage,
+  orderManage,
   articleManage
   //helpCenter
-};
+}

@@ -1,9 +1,13 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Layout from "@/views/layout/App.vue";
-import ArticleManage from "./articleManage";
+import Vue from "vue"
+import VueRouter from "vue-router"
+import Layout from "@/views/layout/App.vue"
+import ArticleManage from "./articleManage"
+import AdminManage from "./adminManage"
+import OrderManage from "./orderManage"
+import UserManage from "./userManage"
+import ProductManage from "./productManage"
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -26,6 +30,10 @@ const routes = [
     ]
   },
   ArticleManage,
+  AdminManage,
+  OrderManage,
+  ProductManage,
+  UserManage,
   {
     path: "/login",
     name: "Login",
@@ -37,15 +45,15 @@ const routes = [
       blank: resolve => require(["@/views/login/Login.vue"], resolve)
     }
   }
-];
+]
 
-const originalPush = VueRouter.prototype.push;
+const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err);
-};
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const router = new VueRouter({
   routes
-});
+})
 
-export default router;
+export default router

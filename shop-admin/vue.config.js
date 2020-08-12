@@ -7,6 +7,6 @@ module.exports = {
   parallel: undefined,
   chainWebpack: config => {
     // remove the prefetch plugin
-    config.plugins.delete("prefetch");
+    config.plugins.delete("prefetch")
   }
-};
+}
