@@ -1,4 +1,3 @@
-import articleManage from "./articleManage.js"
 import adminManage from "./adminManage"
 import orderManage from "./orderManage"
 import productManage from "./productManage"
@@ -20,7 +19,6 @@ export default {
   adminManage,
   userManage,
   productManage,
-  orderManage,
-  articleManage
+  orderManage
   //helpCenter
 }

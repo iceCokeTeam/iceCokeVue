@@ -5,12 +5,12 @@
  * api文件夹的js里面即可使用
  */
 
-let ApiList = document.querySelectorAll(".opblock-summary");
+let ApiList = document.querySelectorAll(".opblock-summary")
 
 let ApiStr = `
 import request from '@/utils/request.js'
-`;
-let MethodNameS = [];
+`
+let MethodNameS = []
 let JsKeyword = [
   "break",
   "else",
@@ -68,18 +68,18 @@ let JsKeyword = [
   "double",
   "import",
   "public"
-];
-let Num = 1;
+]
+let Num = 1
 
 ApiList.forEach(r => {
-  let path = r.querySelector(".opblock-summary-path a span").innerText;
-  let pathArr = path.split("/");
+  let path = r.querySelector(".opblock-summary-path a span").innerText
+  let pathArr = path.split("/")
   let isPostMethod =
-    r.querySelector(".opblock-summary-method").innerText === "POST";
-  Num = 1;
+    r.querySelector(".opblock-summary-method").innerText === "POST"
+  Num = 1
 
-  let methodName = MethodNameUnique(pathArr[pathArr.length - 1]);
-  MethodNameS.push(methodName);
+  let methodName = MethodNameUnique(pathArr[pathArr.length - 1])
+  MethodNameS.push(methodName)
 
   ApiStr += `
 
@@ -97,26 +97,26 @@ export function ${methodName}(params) {
     })
 }
 
-`;
-});
+`
+})
 ApiStr += `
 
 //全部方法
 //${MethodNameS.join("、")}
-`;
+`
 
 function MethodNameUnique(name) {
   if (MethodNameS.indexOf(name) !== -1 || JsKeyword.indexOf(name) !== -1) {
-    Num++;
-    return MethodNameUnique(name + Num);
+    Num++
+    return MethodNameUnique(name + Num)
   }
-  return name;
+  return name
 }
 
 console.warn(
   "==========================================================================="
-);
-console.log(ApiStr);
+)
+console.log(ApiStr)
 console.warn(
   "==========================================================================="
-);
+)

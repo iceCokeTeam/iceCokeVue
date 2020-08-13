@@ -31,3 +31,11 @@ export function brandByName(params) {
     data: params
   })
 }
+
+export function updateBrand(params) {
+  return request({
+    url: "/brand/update",
+    method: "post",
+    data: params
+  })
+}

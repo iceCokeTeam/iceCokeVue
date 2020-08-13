@@ -58,7 +58,16 @@ export default {
       menu: Menu
     };
   },
-  methods: {},
+  methods: {
+    reload() {
+      // 定义加载方式
+      // 先取消当前路由的视图展示，待dom重新渲染完毕，再让当前路由视图展示
+      this.isShow = false;
+      this.$nextTick(() => {
+        this.isShow = true;
+      });
+    }
+  },
   computed: mapState(["system"])
 };
 </script>

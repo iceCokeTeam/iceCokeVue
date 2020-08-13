@@ -31,3 +31,10 @@ export function updateCategory(params) {
     data: params
   })
 }
+
+export function allLevel() {
+  return request({
+    url: "/category/allLevel",
+    method: "post"
+  })
+}

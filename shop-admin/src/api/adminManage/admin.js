@@ -33,6 +33,7 @@ export function updateAdmin(params) {
 }
 
 export function delAdmin(params) {
+  console.log("params" + params)
   return request({
     url: "/admin/del",
     method: "post",

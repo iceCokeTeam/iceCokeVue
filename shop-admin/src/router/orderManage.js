@@ -16,6 +16,15 @@ export default {
       },
       component: resolve =>
         require(["@/views/orderManage/orderList/Index.vue"], resolve)
+    },
+    {
+      path: "detail",
+      name: "OrderDetail",
+      meta: {
+        title: "订单详情"
+      },
+      component: resolve =>
+        require(["@/views/orderManage/orderDetail/Index.vue"], resolve)
     }
   ]
 }

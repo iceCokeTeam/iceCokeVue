@@ -1,7 +1,6 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Layout from "@/views/layout/App.vue"
-import ArticleManage from "./articleManage"
 import AdminManage from "./adminManage"
 import OrderManage from "./orderManage"
 import UserManage from "./userManage"
@@ -29,7 +28,6 @@ const routes = [
       }
     ]
   },
-  ArticleManage,
   AdminManage,
   OrderManage,
   ProductManage,

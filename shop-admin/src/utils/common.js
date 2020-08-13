@@ -1,5 +1,5 @@
-import Storage from "good-storage";
-import Config from "@/config/app";
+import Storage from "good-storage"
+import Config from "@/config/app"
 
 /**
  * 重置对象（会修改原始对象）
@@ -9,12 +9,12 @@ import Config from "@/config/app";
 export function resetObject(object, defaultVal = {}) {
   for (let k in object) {
     if (defaultVal.hasOwnProperty(k)) {
-      object[k] = defaultVal[k];
+      object[k] = defaultVal[k]
     } else {
-      if (Array.isArray(object[k])) object[k] = [];
-      if ("string" == typeof object[k]) object[k] = "";
-      if ("number" == typeof object[k]) object[k] = null;
-      if ("boolean" == typeof object[k]) object[k] = false;
+      if (Array.isArray(object[k])) object[k] = []
+      if ("string" == typeof object[k]) object[k] = ""
+      if ("number" == typeof object[k]) object[k] = null
+      if ("boolean" == typeof object[k]) object[k] = false
     }
   }
 }
@@ -27,7 +27,7 @@ export function resetObject(object, defaultVal = {}) {
 export function fillerLeft(object, valObject = {}) {
   for (let k in object) {
     if (valObject.hasOwnProperty(k)) {
-      object[k] = valObject[k];
+      object[k] = valObject[k]
     }
   }
 }
@@ -38,9 +38,9 @@ export function fillerLeft(object, valObject = {}) {
  * @returns {null|*|undefined|{}}
  */
 export function getUserInfo(key = null) {
-  let userInfo = Storage.get(Config.userInfoKey);
-  if (key) return userInfo.hasOwnProperty(key) ? userInfo[key] : null;
-  return userInfo || {};
+  let userInfo = Storage.get(Config.userInfoKey)
+  if (key) return userInfo.hasOwnProperty(key) ? userInfo[key] : null
+  return userInfo || {}
 }
 
 /**
@@ -49,8 +49,8 @@ export function getUserInfo(key = null) {
  * @returns {*}
  */
 export function setUserInfo(user) {
-  Storage.set(Config.userInfoKey, user);
-  return user;
+  Storage.set(Config.userInfoKey, user)
+  return user
 }
 
 /**
@@ -59,8 +59,8 @@ export function setUserInfo(user) {
  * @returns {*}
  */
 export function setPermissions(permissionsArr) {
-  Storage.set(Config.permissionsKey, permissionsArr);
-  return permissionsArr;
+  Storage.set(Config.permissionsKey, permissionsArr)
+  return permissionsArr
 }
 
 /**
@@ -68,7 +68,7 @@ export function setPermissions(permissionsArr) {
  * @returns {*|undefined|Array}
  */
 export function getPermissions() {
-  return Storage.get(Config.permissionsKey) || [];
+  return Storage.get(Config.permissionsKey) || []
 }
 
 /**
@@ -77,8 +77,8 @@ export function getPermissions() {
  * @returns {boolean}
  */
 export function hasPermissions(permissionsKey) {
-  let permissionsArr = Storage.get(Config.permissionsKey, []);
-  return permissionsArr.indexOf(permissionsKey) !== -1;
+  let permissionsArr = Storage.get(Config.permissionsKey, [])
+  return permissionsArr.indexOf(permissionsKey) !== -1
 }
 
 /**
@@ -86,7 +86,7 @@ export function hasPermissions(permissionsKey) {
  * @returns {*|undefined}
  */
 export function getToken() {
-  return Storage.get(Config.tokenKey);
+  return Storage.get(Config.tokenKey)
 }
 
 /**
@@ -95,7 +95,7 @@ export function getToken() {
  * @returns {*|undefined}
  */
 export function setToken(token) {
-  return Storage.set(Config.tokenKey, token);
+  return Storage.set(Config.tokenKey, token)
 }
 
 /**
@@ -103,5 +103,5 @@ export function setToken(token) {
  * @returns {*}
  */
 export function removeToken() {
-  return Storage.remove(Config.tokenKey);
+  return Storage.remove(Config.tokenKey)
 }

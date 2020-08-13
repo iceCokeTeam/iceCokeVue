@@ -31,3 +31,11 @@ export function updateUser(params) {
     data: params
   })
 }
+
+export function userRegister(params) {
+  return request({
+    url: "/user/register",
+    method: "post",
+    data: params
+  })
+}
