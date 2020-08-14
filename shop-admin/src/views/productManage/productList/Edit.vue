@@ -104,7 +104,6 @@
             list-type="picture-card"
             :auto-upload="false"
             :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
             :multiple="false"
             drag
             :on-change="uploadImg"
@@ -173,9 +172,6 @@ export default {
     addStatus(status) {
       this.info.status = status;
     },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
@@ -191,7 +187,6 @@ export default {
       let that = this;
       updateProduct(this.$qs.stringify(this.info))
         .then(res => {
-          console.log(res);
           if (res.code === 200) {
             that.$message({
               message: "提交成功",

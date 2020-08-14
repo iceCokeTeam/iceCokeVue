@@ -42,24 +42,30 @@
 export default {
   data() {
     return {
-      orderInfo: this.$route.query.detailInfo.userVO,
+      orderInfo: "",
       detailInfo: [],
       userInfo: []
     };
   },
   created() {
-    this.userInfo[0] = this.$route.query.detailInfo.userVO;
-    this.detailInfo = this.$route.query.detailInfo.orderDetail;
-    console.log(this.detailInfo);
+    if (this.$route.query.detailInfo.userVO == undefined) {
+      this.$router.push({ name: "OrderList" });
+    } else {
+      (this.orderInfo = this.$route.query.detailInfo.orderInfo),
+        (this.userInfo[0] = this.$route.query.detailInfo.userVO);
+      this.detailInfo = this.$route.query.detailInfo.orderDetail;
+    }
   }
 };
 </script>
 
 <style scoped>
-.el-card:first-child {
+.el-card {
   display: flex;
   justify-content: center;
+  background-color: rgb(228, 234, 236);
 }
+
 .image {
   width: 100px;
   height: 100px;

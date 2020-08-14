@@ -42,7 +42,12 @@
             <i style="padding-right: 8px" class="fa fa-user"></i>个人中心
           </el-dropdown-item>
           <el-dropdown-item @click.native="logout">
-            <i style="padding-right: 8px" class="fa fa-sign-out"></i>退出系统
+            <i
+              @click="logout"
+              style="padding-right: 8px"
+              class="fa fa-sign-out"
+            ></i
+            >退出系统
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -54,6 +59,7 @@
 import ScreenFull from "screenfull";
 import { mapState } from "vuex";
 import Menu from "@/menu/index";
+import { removeToken } from "@/utils/common";
 export default {
   name: "BodyTop",
   data() {
@@ -76,7 +82,10 @@ export default {
           });
         });
     },
-    logout() {}
+    logout() {
+      removeToken();
+      this.$router.push({ name: "Login" });
+    }
   },
   computed: mapState(["system"])
 };

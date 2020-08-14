@@ -22,7 +22,11 @@
         <el-table-column label="昵称" prop="nickName"></el-table-column>
         <el-table-column label="性别" prop="sex"></el-table-column>
         <el-table-column label="电话" prop="phone"></el-table-column>
-        <el-table-column label="头像" prop="userImg"></el-table-column>
+        <el-table-column label="头像">
+          <template slot-scope="scope">
+            <img :src="scope.row.userImg" alt="" class="image" />
+          </template>
+        </el-table-column>
         <el-table-column label="创建时间" prop="createTime"></el-table-column>
         <el-table-column label="状态">
           <template slot-scope="scope">
@@ -168,5 +172,9 @@ export default {
 .el-pagination {
   float: right;
   margin-top: 20px;
+}
+.image {
+  width: 100px;
+  height: 100px;
 }
 </style>

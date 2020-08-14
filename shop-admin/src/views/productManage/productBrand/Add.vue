@@ -20,7 +20,6 @@
               list-type="picture-card"
               :auto-upload="false"
               :on-preview="handlePictureCardPreview"
-              :on-remove="handleRemove"
               :multiple="false"
               drag
               :on-change="uploadImg"
@@ -63,7 +62,6 @@ export default {
     };
   },
   created() {
-    console.log(this.info);
     this.info.logo = "";
     this.dialogVisible = true;
   },
@@ -79,9 +77,6 @@ export default {
       });
       this.reset();
       this.$emit("close");
-    },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;

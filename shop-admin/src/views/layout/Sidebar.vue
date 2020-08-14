@@ -1,13 +1,10 @@
 <template>
   <div class="sidebar-content">
     <div class="sidebar-top">
-      <img
-        class="logo"
-        v-if="system.miniSidebar === 1"
-        src="../../assets/images/whiteLogo.svg"
-        alt=""
-      />
-      <span v-else>{{ GlobalCfg.siteName }}</span>
+      <div class="logo" v-if="system.miniSidebar === 1">
+        易购商城后台管理系统
+      </div>
+      <span v-else>易购商城后台管理系统</span>
     </div>
     <div class="sidebar-menu">
       <el-menu
