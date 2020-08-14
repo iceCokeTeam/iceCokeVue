@@ -9,6 +9,9 @@
           <el-button type="primary" @click="search">搜索</el-button>
         </el-col>
         <el-col :span="14">
+          <el-button type="primary" v-show="nextLevelPage" @click="returnPage"
+            >返回</el-button
+          >
           <el-button plain @click="(showAddDialog = true), getParentList()"
             >添加</el-button
           >
@@ -29,14 +32,23 @@
             {{ scope.row.parentId === 0 ? "一级" : "二级" }}
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" prop="createTime"></el-table-column>
+        <el-table-column label="创建时间">
+          <template slot-scope="scope">
+            {{ scope.row.createTime | timeFilter }}
+          </template>
+        </el-table-column>
         <el-table-column
           label="查看下一级"
           width="110px"
           v-if="parentId === 0 ? true : false"
         >
           <template slot-scope="scope">
-            <el-button size="small" @click="nextLevel(scope.row.id)"
+            <el-button
+              size="small"
+              @click="
+                nextLevel(scope.row.id),
+                  (searchName = ''((nextLevelPage = true)))
+              "
               >下一级</el-button
             >
           </template>
@@ -108,7 +120,8 @@ export default {
       showAddDialog: false,
       info: "",
       parentList: [],
-      parentId: 0
+      parentId: 0,
+      nextLevelPage: false
     };
   },
   created() {
@@ -207,6 +220,12 @@ export default {
     nextLevel(id) {
       this.parentId = id;
       this.getData();
+    },
+    returnPage() {
+      this.parentId = 0;
+      this.searchName = "";
+      this.getData();
+      this.nextLevelPage = false;
     }
   },
   components: { Edit, Add }

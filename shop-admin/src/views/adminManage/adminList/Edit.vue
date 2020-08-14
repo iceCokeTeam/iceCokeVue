@@ -9,7 +9,7 @@
     >
       <el-form :model="info">
         <el-form-item label="管理员账号" :label-width="labelWidth">
-          <el-input v-model="info.brandName"></el-input>
+          <el-input v-model="info.adminName"></el-input>
         </el-form-item>
         <el-form-item label="密码" :label-width="labelWidth">
           <el-input v-model="info.password" type="password"></el-input>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { updateBrand } from "@/api/productManage/brand/brand";
+import { updateAdmin } from "@/api/adminManage/admin";
 export default {
   props: ["showEditDialog", "info"],
   data() {
@@ -44,11 +44,12 @@ export default {
     submit() {
       var params = {
         id: this.info.id,
-        brandName: this.info.brandName,
-        logo: this.info.logo,
-        introduce: this.info.introduce
+        adminName: this.info.adminName,
+        password: this.info.password,
+        nickName: this.info.nickName,
+        email: this.info.email
       };
-      updateBrand(this.$qs.stringify(params))
+      updateAdmin(this.$qs.stringify(params))
         .then(res => {
           if (res.code === 200) {
             this.$message({

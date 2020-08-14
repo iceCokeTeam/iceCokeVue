@@ -24,10 +24,6 @@
         <el-table-column label="管理员账号" prop="adminName"></el-table-column>
         <el-table-column label="管理员姓名" prop="nickName"></el-table-column>
         <el-table-column label="邮箱" prop="email"></el-table-column>
-        <el-table-column
-          label="最后登录时间"
-          prop="loginTime"
-        ></el-table-column>
         <el-table-column label="状态">
           <template slot-scope="scope">
             <el-switch

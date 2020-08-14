@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item label="上级分类" :label-width="labelWidth">
           <el-select v-model="info.parentId" placeholder="请选择">
-            <el-option label="无上级分类" value="0"></el-option>
+            <el-option label="无上级分类" value="无上级分类"></el-option>
             <el-option
               v-for="(item, index) in parentList"
               :key="index"
